@@ -75,11 +75,12 @@ and end up with a dictionary ``{language: [names ...]}``.
 
 """
 from __future__ import unicode_literals, print_function, division
-from io import open
+
 import glob
 import os
-import unicodedata
 import string
+import unicodedata
+from io import open
 
 all_letters = string.ascii_letters + " .,;'-"
 n_letters = len(all_letters) + 1  # Plus EOS marker
@@ -121,7 +122,6 @@ if n_categories == 0:
 					   'the current directory.')
 
 print('# categories:', n_categories, all_categories)
-print(unicodeToAscii("O'Néàl"))
 
 ######################################################################
 # Creating the Network
@@ -356,7 +356,6 @@ for iter in range(1, n_iters + 1):
 #
 
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 
 plt.figure()
 plt.plot(all_losses)
@@ -418,13 +417,15 @@ def samples(category, start_letters='ABC'):
 		print(sample(category, start_letter))
 
 
-samples('Russian', 'RUS')
+samples('Czech',
+		'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
-samples('German', 'GER')
+samples('American',
+		'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
-samples('Spanish', 'SPA')
+# samples('Spanish', 'SPA')
 
-samples('Chinese', 'CHI')
+# samples('Chinese', 'CHI')
 
 
 ######################################################################
